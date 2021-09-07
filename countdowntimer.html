@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        count down timer
+    </title>
+    <link href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Shade|Covered+By+Your+Grace" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Palette+Mosaic&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: url("https://images.unsplash.com/photo-1577853599982-4d7a1ef7906a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=767&q=80");
+            background-size: cover;
+            color: white;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        h1 {
+            font-family: Palette, Bungee shade, cursive;
+            color: rgb(231, 74, 74);
+            font-size: 3.9em;
+        }
+
+        #timer {
+            display: flex;
+            flex-direction: row;
+            margin-left: 18.5em;
+            font-size: 1.49em;
+            font-family: Palette, cursive;
+            color: rgb(255, 255, 255);
+            position: absolute;
+            top:5em; 
+            
+        }
+
+        #countdown-hours {
+            margin-right: 1em;
+        }
+
+        #countdown-seconds {
+            margin-left: 1.5em;
+        }
+
+        #countdown-days {
+            margin-right: 1.4em;
+        }
+
+        p {
+            font-size: 2.5em
+        }
+        span{
+            font-size:1.3em;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="countdown-container">
+        <h1>NEW YEAR EVE</h1>
+        <div id=timer>
+            <div id="countdown-days">
+                <p id="days">0</p>
+                <span>Days</span>
+            </div>
+            <div id=countdown-hours>
+                <p id="hours">0</p>
+                <span>Hours</span>
+            </div>
+            <div id="countdown-minute">
+                <p id="minutes">0
+                </p>
+                <span>Minute</span>
+            </div>
+            <div id="countdown-seconds">
+                <p id="seconds">0</p>
+                <span>Seconds</span>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+
+        const daysEl = document.getElementById('days');
+        const hoursEl = document.getElementById('hours');
+        const minutesEl = document.getElementById('minutes');
+        const secondsEl = document.getElementById('seconds');
+     
+     //new year eve //
+     const newyear = "1 jan 2022";
+     
+     function countdown() {
+     const newyeardate = new Date(newyear);
+     const date = new Date();
+
+     const totalseconds = (newyeardate - date) / 1000;
+     const days = Math.floor(totalseconds / 3600 / 24);
+     const hours = Math.floor(totalseconds / 3600) % 24;
+     const minutes = Math.floor(totalseconds / 60) % 60;
+     const seconds = Math.floor(totalseconds) % 60;
+
+     daysEl.innerHTML = days;
+     hoursEl.innerHTML = hours;
+     minutesEl.innerHTML = minutes;
+     secondsEl.innerHTML = seconds;
+
+ 
+     } 
+
+     countdown();
+
+     setInterval(countdown,1000);
+
+
+        
+    </script>
+</body>
+
+
+</html>
